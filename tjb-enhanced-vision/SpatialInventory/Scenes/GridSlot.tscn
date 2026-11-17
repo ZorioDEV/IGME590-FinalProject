@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://biicskj4b2boc"]
+
+[ext_resource type="Texture2D" uid="uid://c4enuldrnujby" path="res://SpatialInventory/Assets/Textures/slot-sprite.png" id="1_r66qw"]
+[ext_resource type="Script" uid="uid://bp56gulw5ayx7" path="res://SpatialInventory/Scripts/GridSlot.gd" id="2_r66qw"]
+
+[node name="TextureRect" type="TextureRect" unique_id=1324190956]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_r66qw")
+script = ExtResource("2_r66qw")

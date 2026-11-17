@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://c8c8am1sbhqhj"]
+
+[ext_resource type="Script" uid="uid://c2vtkt1ak03eo" path="res://SpatialInventory/Scripts/Inventory.gd" id="1_efo6i"]
+[ext_resource type="Script" uid="uid://cwgr447oaykyo" path="res://SpatialInventory/Scripts/GridContainer.gd" id="2_wreb4"]
+[ext_resource type="PackedScene" uid="uid://biicskj4b2boc" path="res://SpatialInventory/Scenes/GridSlot.tscn" id="3_qdp8v"]
+
+[node name="Inventory" type="ColorRect" unique_id=1970319255 node_paths=PackedStringArray("grid_container", "item_layer")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.4506483, 0.4506483, 0.45064825, 1)
+script = ExtResource("1_efo6i")
+grid_container = NodePath("GridContainer")
+item_layer = NodePath("ItemLayer")
+max_items = 20
+
+[node name="GridContainer" type="GridContainer" parent="." unique_id=321961480]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 576.0
+offset_bottom = 324.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 10
+script = ExtResource("2_wreb4")
+grid_elements = 50
+slot_scene = ExtResource("3_qdp8v")
+
+[node name="ItemLayer" type="Control" parent="." unique_id=878133499]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 3.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ControlInstructions" type="Label" parent="." unique_id=821923515]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 18.0
+offset_right = 348.0
+offset_bottom = 139.0
+theme_override_font_sizes/font_size = 20
+text = "Spawn Items (keys 1-5)
+Clear Items (Space)
+Place/Pick up Item (Left Mouse Button)
+Rotate Item (Right Mouse Button)"

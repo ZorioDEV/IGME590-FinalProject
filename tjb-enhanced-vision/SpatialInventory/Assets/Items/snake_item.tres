@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://c2545mydb1h8f"]
+
+[ext_resource type="Script" uid="uid://cfcvhsrrf68e0" path="res://SpatialInventory/Scripts/ItemData.gd" id="1_7h6gw"]
+[ext_resource type="Texture2D" uid="uid://cem7jm83lv8jo" path="res://SpatialInventory/Assets/Textures/snake-sprite.png" id="2_h75pa"]
+
+[resource]
+script = ExtResource("1_7h6gw")
+item_name = "Snake"
+texture = ExtResource("2_h75pa")
+shape_offsets = Array[Vector2i]([Vector2i(0, 0), Vector2i(0, 1), Vector2i(1, 1)])
+metadata/_custom_type_script = "uid://cfcvhsrrf68e0"

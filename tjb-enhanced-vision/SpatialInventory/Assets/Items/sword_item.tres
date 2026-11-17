@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://g0f6iatjayim"]
+
+[ext_resource type="Script" uid="uid://cfcvhsrrf68e0" path="res://SpatialInventory/Scripts/ItemData.gd" id="1_gr0ue"]
+[ext_resource type="Texture2D" uid="uid://dds5mya4kemfr" path="res://SpatialInventory/Assets/Textures/sword-sprite.png" id="2_jj3ra"]
+
+[resource]
+script = ExtResource("1_gr0ue")
+item_name = "Sword"
+texture = ExtResource("2_jj3ra")
+shape_offsets = Array[Vector2i]([Vector2i(0, 0), Vector2i(1, 0)])
+metadata/_custom_type_script = "uid://cfcvhsrrf68e0"

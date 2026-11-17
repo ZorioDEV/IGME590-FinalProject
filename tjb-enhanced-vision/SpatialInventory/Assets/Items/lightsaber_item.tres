@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://cxk4cq6vdevxm"]
+
+[ext_resource type="Script" uid="uid://cfcvhsrrf68e0" path="res://SpatialInventory/Scripts/ItemData.gd" id="1_2lh0h"]
+[ext_resource type="Texture2D" uid="uid://wg6vb5mfiapo" path="res://SpatialInventory/Assets/Textures/lightsaber-sprite.png" id="2_odl72"]
+
+[resource]
+script = ExtResource("1_2lh0h")
+item_name = "Lightsaber"
+texture = ExtResource("2_odl72")
+shape_offsets = Array[Vector2i]([Vector2i(0, 1), Vector2i(1, 0)])
+metadata/_custom_type_script = "uid://cfcvhsrrf68e0"

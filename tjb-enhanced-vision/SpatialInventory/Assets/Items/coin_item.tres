@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://cx6mc2vhlelx1"]
+
+[ext_resource type="Script" uid="uid://cfcvhsrrf68e0" path="res://SpatialInventory/Scripts/ItemData.gd" id="1_52hkt"]
+[ext_resource type="Texture2D" uid="uid://cq6a5aj74b0ee" path="res://SpatialInventory/Assets/Textures/coin-sprite.png" id="2_347uh"]
+
+[resource]
+script = ExtResource("1_52hkt")
+item_name = "Coin"
+texture = ExtResource("2_347uh")
+shape_offsets = Array[Vector2i]([Vector2i(0, 0)])
+metadata/_custom_type_script = "uid://cfcvhsrrf68e0"
