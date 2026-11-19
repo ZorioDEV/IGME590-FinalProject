@@ -80,7 +80,7 @@ _data = {
 &"raise_goggle": SubResource("Animation_dqkch")
 }
 
-[node name="Player" type="CharacterBody3D" unique_id=1717554717]
+[node name="Player" type="CharacterBody3D" unique_id=1717554717 groups=["Player"]]
 collision_layer = 2
 script = ExtResource("1_g2els")
 

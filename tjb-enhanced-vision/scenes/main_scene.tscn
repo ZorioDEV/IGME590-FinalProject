@@ -2,7 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://d323ep1umukis" path="res://scenes/player.tscn" id="1_w2twt"]
 [ext_resource type="PackedScene" uid="uid://buqtmfqbdftt6" path="res://models/forest/forest.glb" id="2_pw63i"]
-[ext_resource type="Script" path="res://scripts/goggle_mirror.gd" id="3_mirror"]
+[ext_resource type="Script" uid="uid://bq03vfekjmm2d" path="res://scripts/goggle_mirror.gd" id="3_mirror"]
+[ext_resource type="PackedScene" uid="uid://bocb8l3hcwy5f" path="res://scenes/pickup_item.tscn" id="4_pu3yx"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7ykc4"]
 sky_top_color = Color(0.09110289, 0.11733463, 0.15106094, 1)
@@ -35,3 +36,15 @@ transform = Transform3D(115.88, 0, 0, 0, 1, 0, 0, 0, 115, -1, -0.5, 2)
 use_collision = true
 
 [node name="Sketchfab_Scene" parent="SceneGeom" unique_id=157457568 instance=ExtResource("2_pw63i")]
+
+[node name="Area3D" parent="SceneGeom" unique_id=629929025 instance=ExtResource("4_pu3yx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.517128, 1, -2.6695008)
+
+[node name="Area3D2" parent="SceneGeom" unique_id=166384938 instance=ExtResource("4_pu3yx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.689529, 1, 0.1634463)
+
+[node name="Area3D3" parent="SceneGeom" unique_id=1806332756 instance=ExtResource("4_pu3yx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.8311367, 1, 4.027565)
+
+[node name="Area3D4" parent="SceneGeom" unique_id=386002639 instance=ExtResource("4_pu3yx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7425454, 1, 3.1425996)

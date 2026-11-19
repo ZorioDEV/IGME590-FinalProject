@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://bocb8l3hcwy5f"]
+
+[ext_resource type="Script" uid="uid://3vcghk1pytjk" path="res://scripts/pickup_item.gd" id="1_ift3w"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_0qryw"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_41vx7"]
+
+[node name="Area3D" type="Area3D" unique_id=629929025]
+collision_mask = 2
+script = ExtResource("1_ift3w")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2103678152]
+mesh = SubResource("CapsuleMesh_0qryw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2131918528]
+transform = Transform3D(1.09, 0, 0, 0, 1.09, 0, 0, 0, 1.09, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_41vx7")
+debug_color = Color(0.9255811, 4.033357e-05, 0.677624, 0.41960785)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
