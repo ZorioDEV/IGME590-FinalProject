@@ -49,6 +49,8 @@ func _ready() -> void:
 		InputMap.action_add_event("Clear Items", ev)
 
 func _input(event):
+	if not is_visible_in_tree():
+		return
 	if event.is_action_pressed("Spawn Item 1"):
 		spawn_item(load("res://SpatialInventory/Assets/Items/coin_item.tres"))
 	if event.is_action_pressed("Spawn Item 2"):

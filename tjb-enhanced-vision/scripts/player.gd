@@ -10,6 +10,7 @@ var sensitivity:float = 0.001
 @onready var night_overlay: CanvasLayer = $Head/CanvasLayer
 @onready var night_animation: AnimationPlayer = $AnimationPlayer
 @onready var goggles: Node3D = $Head/GoggleScene
+@onready var inventory_layer: CanvasLayer = $InventoryLayer
 
 const GOGGLE_ANIM := "raise_goggle"
 const FADE_IN_TIME := 0.6
@@ -18,6 +19,7 @@ var night_vision_on := false
 var goggles_wanted := false
 var night_light_energy: float
 var fade_tween: Tween
+var inventory_open := false
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -32,7 +34,13 @@ func _ready() -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("night_vision"):
+	if event.is_action_pressed("toggle_inventory"):
+		#inventory is unavailable while the goggles are up (or going up)
+		if inventory_open or not goggles_wanted:
+			_set_inventory_open(not inventory_open)
+		return
+
+	if event.is_action_pressed("night_vision") and not inventory_open:
 		goggles_wanted = not goggles_wanted
 		if goggles_wanted:
 			#raises the goggles
@@ -47,6 +55,12 @@ func _on_goggle_animation_finished(anim_name: StringName) -> void:
 	#turns on night vision after animation
 	if anim_name == GOGGLE_ANIM and goggles_wanted:
 		_set_night_vision(true)
+
+
+func _set_inventory_open(open: bool) -> void:
+	inventory_open = open
+	inventory_layer.visible = open
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE if open else Input.MOUSE_MODE_CAPTURED)
 
 
 func _set_night_vision(on: bool) -> void:
@@ -69,12 +83,14 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 
 	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+	if Input.is_action_just_pressed("ui_accept") and is_on_floor() and not inventory_open:
 		velocity.y = JUMP_VELOCITY
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var input_dir := Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	var input_dir := Vector2.ZERO
+	if not inventory_open:
+		input_dir = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
 		velocity.x = direction.x * SPEED
@@ -87,7 +103,7 @@ func _physics_process(delta: float) -> void:
 
 
 func _input(event: InputEvent) -> void:
-	if event is InputEventMouseMotion:
+	if event is InputEventMouseMotion and not inventory_open:
 		rotate_y(-event.relative.x * sensitivity)
 		head.rotate_x(-event.relative.y * sensitivity)
 		head.rotation.x = clamp(head.rotation.x, deg_to_rad(-90.0), deg_to_rad(90.0))

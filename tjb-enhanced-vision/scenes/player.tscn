@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://hk0kqy434s64" path="res://scripts/player.gd" id="1_g2els"]
 [ext_resource type="PackedScene" uid="uid://c36d3gjvvfwlo" path="res://scenes/goggle_scene.tscn" id="2_qhqgy"]
 [ext_resource type="Shader" uid="uid://cxtikqkgdn7y2" path="res://shaders/night_vision.gdshader" id="3_qhqgy"]
+[ext_resource type="PackedScene" uid="uid://c8c8am1sbhqhj" path="res://SpatialInventory/spatial_inventory.tscn" id="4_inv"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qhqgy"]
 shader = ExtResource("3_qhqgy")
@@ -117,3 +118,9 @@ shape = SubResource("CapsuleShape3D_rmfle")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=74654347]
 libraries/ = SubResource("AnimationLibrary_qlg0r")
+
+[node name="InventoryLayer" type="CanvasLayer" parent="." unique_id=1843920571]
+layer = 2
+visible = false
+
+[node name="Inventory" parent="InventoryLayer" unique_id=692284013 instance=ExtResource("4_inv")]

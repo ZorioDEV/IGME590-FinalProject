@@ -35,6 +35,8 @@ func _process(delta: float) -> void:
 		display_availability(active_item)
 
 func _input(event):
+	if not is_visible_in_tree():
+		return
 	if active_item != null:
 		if event.is_action_pressed("Place Item"):
 			place_item(active_item)
