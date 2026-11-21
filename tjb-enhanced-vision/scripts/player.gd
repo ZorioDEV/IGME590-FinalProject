@@ -11,6 +11,7 @@ var sensitivity:float = 0.001
 @onready var night_animation: AnimationPlayer = $AnimationPlayer
 @onready var goggles: Node3D = $Head/GoggleScene
 @onready var inventory_layer: CanvasLayer = $InventoryLayer
+@onready var inventory = $InventoryLayer/Inventory
 
 const GOGGLE_ANIM := "raise_goggle"
 const FADE_IN_TIME := 0.6
@@ -46,9 +47,26 @@ func _unhandled_input(event: InputEvent) -> void:
 			#raises the goggles
 			night_animation.play(GOGGLE_ANIM)
 		else:
-			#turns night vision off instantly (exiting)
-			_set_night_vision(false)
-			night_animation.play_backwards(GOGGLE_ANIM)
+			_lower_goggles()
+
+
+func _lower_goggles() -> void:
+	goggles_wanted = false
+	_set_night_vision(false)
+	night_animation.play_backwards(GOGGLE_ANIM)
+
+
+#opens the inventory with the item (called by pickups)
+func receive_item(item_data: ItemData) -> bool:
+	if not inventory.spawn_item(item_data):
+		return false
+	
+	if goggles_wanted:
+		_lower_goggles()
+	
+	_set_inventory_open(true)
+	
+	return true
 
 
 func _on_goggle_animation_finished(anim_name: StringName) -> void:

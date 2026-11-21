@@ -4,6 +4,10 @@
 [ext_resource type="PackedScene" uid="uid://buqtmfqbdftt6" path="res://models/forest/forest.glb" id="2_pw63i"]
 [ext_resource type="Script" uid="uid://bq03vfekjmm2d" path="res://scripts/goggle_mirror.gd" id="3_mirror"]
 [ext_resource type="PackedScene" uid="uid://bocb8l3hcwy5f" path="res://scenes/pickup_item.tscn" id="4_pu3yx"]
+[ext_resource type="Resource" uid="uid://cx6mc2vhlelx1" path="res://SpatialInventory/Assets/Items/coin_item.tres" id="5_18nlu"]
+[ext_resource type="Resource" uid="uid://cw6tbembn5mmf" path="res://SpatialInventory/Assets/Items/cross_item.tres" id="6_c1pb6"]
+[ext_resource type="Resource" uid="uid://cxk4cq6vdevxm" path="res://SpatialInventory/Assets/Items/lightsaber_item.tres" id="7_6wevv"]
+[ext_resource type="Resource" uid="uid://c2545mydb1h8f" path="res://SpatialInventory/Assets/Items/snake_item.tres" id="8_e1cbu"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7ykc4"]
 sky_top_color = Color(0.09110289, 0.11733463, 0.15106094, 1)
@@ -39,12 +43,16 @@ use_collision = true
 
 [node name="Area3D" parent="SceneGeom" unique_id=629929025 instance=ExtResource("4_pu3yx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.517128, 1, -2.6695008)
+item_data = ExtResource("5_18nlu")
 
 [node name="Area3D2" parent="SceneGeom" unique_id=166384938 instance=ExtResource("4_pu3yx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.689529, 1, 0.1634463)
+item_data = ExtResource("6_c1pb6")
 
 [node name="Area3D3" parent="SceneGeom" unique_id=1806332756 instance=ExtResource("4_pu3yx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.8311367, 1, 4.027565)
+item_data = ExtResource("7_6wevv")
 
 [node name="Area3D4" parent="SceneGeom" unique_id=386002639 instance=ExtResource("4_pu3yx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7425454, 1, 3.1425996)
+item_data = ExtResource("8_e1cbu")

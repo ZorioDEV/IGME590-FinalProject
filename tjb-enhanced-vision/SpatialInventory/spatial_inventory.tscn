@@ -10,7 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.4506483, 0.4506483, 0.45064825, 1)
+color = Color(0.4509804, 0.4509804, 0.4509804, 0)
 script = ExtResource("1_efo6i")
 grid_container = NodePath("GridContainer")
 item_layer = NodePath("ItemLayer")
@@ -51,7 +51,5 @@ offset_top = 18.0
 offset_right = 348.0
 offset_bottom = 139.0
 theme_override_font_sizes/font_size = 20
-text = "Spawn Items (keys 1-5)
-Clear Items (Space)
-Place/Pick up Item (Left Mouse Button)
+text = "Place/Pick up Item (Left Mouse Button)
 Rotate Item (Right Mouse Button)"
